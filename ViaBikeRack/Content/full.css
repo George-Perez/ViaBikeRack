@@ -1,0 +1,20 @@
+﻿
+body {
+    /*background: url('') no-repeat center center fixed;*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    padding: 0px;
+    font-size: 1.5rem !important;
+}
+
+.navbar {
+    padding: 1.5rem;
+}
+
+#map {
+    padding-top: 100px;
+    height: 757px;
+    width: 100%;
+}

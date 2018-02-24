@@ -2,9 +2,75 @@
     ViewBag.Title = "Home Page";
 }
 
-TO ADD -
-
-Map overview with a single bus route (522), Users can click on bus and see which racks are occupied
 
 
-@{Html.RenderPartial("DriverIndex"); }
+    to add -
+
+    map overview with a single bus route (522), users can click on bus and see which racks are occupied
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Full - Start Bootstrap Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="~/Content/full.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <img class="navbar-brand" href="#"src="~/Images/menu-logo.png" class="img-responsive"></img>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">
+                            NEXT DEPARTURES
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">TRIP PLANNING</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">SHOW ROUTES</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div>
+        <div class="img-fluid" alt="Responsive image">
+            <div id="map" style="padding: 0px;"></div>
+        </div>
+    </div>
+
+    <!-- Page Content -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
+
+
+@*@{Html.RenderPartial("DriverIndex"); }*@
