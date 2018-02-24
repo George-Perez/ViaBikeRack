@@ -1,0 +1,131 @@
+﻿@model ViaBikeRack.Models.BikeRackModel
+
+
+
+
+<style>
+    #map {
+        height: 600px;
+        width: 100%;
+    }
+</style>
+
+<script>
+    //Changes the text and color of the button when clicked by the bus driver.
+    function myFunction() {
+        $(this).text(function (i, v) {
+            return v === 'Unoccupied' ? 'Occupied' : 'Unoccupied'
+        })
+        if ($(this).hasClass('btn btn-success btn-lg')) {
+            $(this).removeClass('btn btn-success btn-lg');
+            $(this).addClass('btn btn-danger btn-lg');
+        }
+        else {
+            $(this).removeClass('btn btn-danger btn-lg');
+            $(this).addClass('btn btn-success btn-lg');
+        }
+    };
+</script>
+
+<div class="container" style="background-color:darkred;">
+    <div class="row">
+        <div class="col-sm-2">
+
+        </div>
+        <div class="col-sm-3" style="background-color:white;">
+            <img src="~/Images/VIA_Metropolitan_Transit_logo_small.png" class="img-responsive" />
+        </div>
+        <div class="col-sm-6">
+
+        </div>
+    </div>
+</div>
+
+<div class="container" style="background-color:white;">
+    <div class="row align-items-center justify-content-center">
+        <div class="col">
+            <div class="col" style="padding:25px;">
+                <h2>BUS NUMBER #12312321</h2>
+            </div>
+            <div class="col" style="padding: 10px;">
+                <h2 style="padding-left:10px;">Bike Rack One</h2>
+                <div class="checkbox hidden">
+                    @Html.EditorFor(model => model.IsActive_Bike_Rack_1)
+                    @Html.ValidationMessageFor(model => model.IsActive_Bike_Rack_1, "", new { @class = "text-danger" })
+                </div>
+                <button type="button" onclick="myFunction.call(this)" class="btn btn-success btn-lg" style="font-size:40px; border-radius: 10px;">Unoccupied</button>
+            </div>
+            <div class="col" style="padding: 10px;">
+                <h2 style="padding-left:10px;">Bike Rack Two</h2>
+                <button type="button" onclick="myFunction.call(this)" class="btn btn-success btn-lg" style="font-size:40px; border-radius: 10px;">Unoccupied</button>
+            </div>
+
+        </div>
+        <div class="col-md-7 col-sm-9">
+
+            <div id="map" style="padding: 10px;"></div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsActive_Bike_Rack_1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.IsActive_Bike_Rack_1)
+                    @Html.ValidationMessageFor(model => model.IsActive_Bike_Rack_1, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsActive_Bike_Rack_2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.IsActive_Bike_Rack_2)
+                    @Html.ValidationMessageFor(model => model.IsActive_Bike_Rack_2, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsActive_Bike_Rack_3, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.IsActive_Bike_Rack_3)
+                    @Html.ValidationMessageFor(model => model.IsActive_Bike_Rack_3, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

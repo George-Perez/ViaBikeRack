@@ -1,0 +1,83 @@
+﻿@model ViaBikeRack.Models.BikeRackModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BikeRackModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Route_Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Route_Number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bus_Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bus_Number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bike_Rack_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bike_Rack_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bike_Rack_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bike_Rack_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bike_Rack_3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bike_Rack_3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsActive_Bike_Rack_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsActive_Bike_Rack_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsActive_Bike_Rack_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsActive_Bike_Rack_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsActive_Bike_Rack_3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsActive_Bike_Rack_3)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

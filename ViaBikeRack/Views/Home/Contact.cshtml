@@ -5,11 +5,27 @@
 
 <style>
     #map {
-        top: 15rem;
-        height: 40rem;
-        width: 40rem;
+        height: 600px;
+        width: 100%;
     }
 </style>
+
+<script>
+    //Changes the text and color of the button when clicked by the bus driver.
+    function myFunction() {
+        $(this).text(function (i, v) {
+            return v === 'Unoccupied' ? 'Occupied' : 'Unoccupied'
+        })
+        if ($(this).hasClass('btn btn-success btn-lg')) {
+            $(this).removeClass('btn btn-success btn-lg');
+            $(this).addClass('btn btn-danger btn-lg');
+        }
+        else {
+            $(this).removeClass('btn btn-danger btn-lg');
+            $(this).addClass('btn btn-success btn-lg');
+        }
+    };
+</script>
 
 <div class="container" style="background-color:darkred;">
     <div class="row">
@@ -26,23 +42,25 @@
 </div>
 
 <div class="container" style="background-color:white;">
-    <div class="row align-items-center justify-content-start">
-        <div class="col-lg-6">
-            <div class="col-lg" style="padding:25px;">
+    <div class="row align-items-center justify-content-center">
+        <div class="col">
+            <div class="col" style="padding:25px;">
                 <h2>BUS NUMBER #12312321</h2>
             </div>
-            <div class="col-lg" style="padding: 10px;">
+            <div class="col" style="padding: 10px;">
                 <h2 style="padding-left:10px;">Bike Rack One</h2>
-                <button type="button" class="btn btn-success btn-lg" style="font-size:40px; border-radius: 10px;">Unoccupied</button>
+                <button type="button" onclick="myFunction.call(this)" class="btn btn-success btn-lg" style="font-size:40px; border-radius: 10px;">Unoccupied</button>
             </div>
-            <div class="col-lg" style="padding: 10px;">
+            <div class="col" style="padding: 10px;">
                 <h2 style="padding-left:10px;">Bike Rack Two</h2>
-                <button type="button" class="btn btn-success btn-lg" style="font-size:40px; border-radius: 10px;">Unoccupied</button>
+                <button type="button" onclick="myFunction.call(this)" class="btn btn-success btn-lg" style="font-size:40px; border-radius: 10px;">Unoccupied</button>
             </div>
 
         </div>
-        <div class="col-4">
-            <div id='map'></div>
+        <div class="col-md-7 col-sm-9">
+
+            <div id="map" style="padding: 10px;"></div>
+
         </div>
     </div>
 </div>
