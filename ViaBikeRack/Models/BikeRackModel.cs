@@ -7,7 +7,7 @@ namespace ViaBikeRack.Models
 {
     public class BikeRackModel
     {
-        bacon
+        //bacon
         public int Id { get; set; }
 
         public int Route_Number { get; set; }
