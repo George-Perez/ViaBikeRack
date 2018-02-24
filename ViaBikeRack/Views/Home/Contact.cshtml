@@ -1,17 +1,50 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+<style>
+    #map {
+        top: 15rem;
+        height: 40rem;
+        width: 40rem;
+    }
+</style>
+
+<div class="container" style="background-color:darkred;">
+    <div class="row">
+        <div class="col-sm-2">
+
+        </div>
+        <div class="col-sm-3" style="background-color:white;">
+            <img src="~/Images/VIA_Metropolitan_Transit_logo_small.png" class="img-responsive" />
+        </div>
+        <div class="col-sm-6">
+
+        </div>
+    </div>
+</div>
+
+<div class="container" style="background-color:white;">
+    <div class="row align-items-center justify-content-start">
+        <div class="col-lg-6">
+            <div class="col-lg" style="padding:25px;">
+                <h2>BUS NUMBER #12312321</h2>
+            </div>
+            <div class="col-lg" style="padding: 10px;">
+                <h2 style="padding-left:10px;">Bike Rack One</h2>
+                <button type="button" class="btn btn-success btn-lg" style="font-size:40px; border-radius: 10px;">Unoccupied</button>
+            </div>
+            <div class="col-lg" style="padding: 10px;">
+                <h2 style="padding-left:10px;">Bike Rack Two</h2>
+                <button type="button" class="btn btn-success btn-lg" style="font-size:40px; border-radius: 10px;">Unoccupied</button>
+            </div>
+
+        </div>
+        <div class="col-4">
+            <div id='map'></div>
+        </div>
+    </div>
+</div>
+
+
