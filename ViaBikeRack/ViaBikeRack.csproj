@@ -228,6 +228,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\menu-logo.png" />
+    <Content Include="Images\viaBusIcon.png" />
     <Content Include="Images\VIA_Metropolitan_Transit_logo_small.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

@@ -5,79 +5,139 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<style>
+    #map {
+        height: 600px;
+        width: 100%;
+    }
 
-<div>
-    <h4>BikeRackModel</h4>
+    .btn-color-toggle {
+        /*background-color: green;*/
+        height: 100px;
+        width: 300px;
+    }
+
+    .color-change-red {
+        background-color: darkred;
+    }
+
+    .color-change-green {
+        background-color: green;
+    }
+</style>
+
+
+
+@*<div class="container" style="background-color:darkred;">
+        <div class="row">
+            <div class="col-sm-2">
+
+            </div>
+            <div class="col-sm-3" style="background-color:white;">
+                <img src="~/Images/VIA_Metropolitan_Transit_logo_small.png" class="img-responsive" />
+            </div>
+            <div class="col-sm-6">
+
+            </div>
+        </div>
+    </div>*@
+
+
+
+
+
+
+
+@Html.AntiForgeryToken()
+
+<div class="form-horizontal">
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Route_Number)
-        </dt>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
 
-        <dd>
-            @Html.DisplayFor(model => model.Route_Number)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Bus_Number)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Bus_Number)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Bike_Rack_1)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Bike_Rack_1)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Bike_Rack_2)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Bike_Rack_2)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Bike_Rack_3)
-        </dt>
+    <div class="row">
+        <div class="col">
 
-        <dd>
-            @Html.DisplayFor(model => model.Bike_Rack_3)
-        </dd>
+            @*FIRST BIKE RACK*@
+            <div class="col">
+                @Html.LabelFor(model => model.IsActive_Bike_Rack_1)
+                <div class="btn">
+                    @if (Model.IsActive_Bike_Rack_1 == true)
+                    {
+                        <span class="btn-danger" style="font-size:20px; padding:5px; border-radius: 10px;">
+                            <text>Occupied</text>
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="btn btn-success" style="font-size:20px; border-radius: 10px;">
+                            <text>Unoccupied</text>
+                        </span>
+                    }
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IsActive_Bike_Rack_1)
-        </dt>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.IsActive_Bike_Rack_1)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IsActive_Bike_Rack_2)
-        </dt>
+            @*SECOND BIKE RACK*@
+            <div class="col">
+                @Html.LabelFor(model => model.IsActive_Bike_Rack_2)
+                <div class="btn">
+                    @if (Model.IsActive_Bike_Rack_2 == true)
+                    {
+                        <span class="btn-danger" style="font-size:20px; padding:5px; border-radius: 10px;">
+                            <text>Occupied</text>
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="btn btn-success" style="font-size:20px; border-radius: 10px;">
+                            <text>Unoccupied</text>
+                        </span>
+                    }
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.IsActive_Bike_Rack_2)
-        </dd>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IsActive_Bike_Rack_3)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.IsActive_Bike_Rack_3)
-        </dd>
 
-    </dl>
+
+            @*THIRD BIKE RACK*@
+            <div class="col">
+                @Html.LabelFor(model => model.IsActive_Bike_Rack_3)
+                <div class="btn">
+                    @if (Model.IsActive_Bike_Rack_3 == true)
+                    {
+                        <span class="btn-danger" style="font-size:20px; padding:5px; border-radius: 10px;">
+                            <text>Occupied</text>
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="btn btn-success" style="font-size:20px; border-radius: 10px;">
+                            <text>Unoccupied</text>
+                        </span>
+                    }
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+
+
+
+
+
+
+

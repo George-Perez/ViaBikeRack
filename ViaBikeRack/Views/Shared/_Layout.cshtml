@@ -44,9 +44,11 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
 
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7nlstG_JTw4nTijaA55z0j16ZUUiq4ME&callback=initMap"
+            async defer></script>
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
-    <script src='https://api.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="~/Scripts/MyMap.js"></script>
     @RenderSection("scripts", required: false)
