@@ -83,6 +83,7 @@ namespace ViaBikeRack.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 db.Entry(bikeRackModel).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

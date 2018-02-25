@@ -5,107 +5,220 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
+<style>
+    #map {
+        height: 600px;
+        width: 100%;
+    }
+
+    .btn-color-toggle {
+        /*background-color: green;*/
+        height: 100px;
+        width: 300px;
+    }
+
+    .color-change-red {
+        background-color: darkred;
+    }
+
+    .color-change-green {
+        background-color: green;
+    }
+</style>
 
 
-@using (Html.BeginForm())
-{
+
+<div class="container" style="background-color:darkred;">
+    <div class="row">
+        <div class="col-sm-2">
+
+        </div>
+        <div class="col-sm-3" style="background-color:white;">
+            <img src="~/Images/VIA_Metropolitan_Transit_logo_small.png" class="img-responsive" />
+        </div>
+        <div class="col-sm-6">
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<form id="submitForm" asp-action="Edit" asp-controller="BikeRack" method="post">
+    @*@using (Html.BeginForm("Edit", "BikeRack", "POST", new { @id="submitForm"}))
+        {*@
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>BikeRackModel</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Route_Number, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Route_Number, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Route_Number, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Bus_Number, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Bus_Number, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Bus_Number, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Bike_Rack_1, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Bike_Rack_1)
-                    @Html.ValidationMessageFor(model => model.Bike_Rack_1, "", new { @class = "text-danger" })
+
+
+
+        <div class="container" style="background-color:white;">
+            <div class="row align-items-center justify-content-center">
+                <div class="col">
+                    <div class="col">
+
+                        <div class="row align-items-center">
+                            <div class="col-2">
+                                <h3>
+                                    @Html.LabelFor(model => model.Route_Number, htmlAttributes: new { @class = "control-label col-md-2" })
+                                </h3>
+                            </div>
+                            <div class="col-4">
+                                <h3>
+                                    @Html.HiddenFor(model => model.Route_Number, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.DisplayFor(model => model.Route_Number, new { htmlAttributes = new { @class = "form-control readonly" } })
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="row align-items-center" style="padding-bottom: 30px;">
+                            <div class="col-2">
+                                <h3>
+                                    @Html.LabelFor(model => model.Bus_Number, htmlAttributes: new { @class = "control-label col-md-2" })
+                                </h3>
+                            </div>
+                            <div class="col-4">
+                                <h3>
+                                    @Html.HiddenFor(model => model.Bus_Number, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.DisplayFor(model => model.Bus_Number, new { htmlAttributes = new { @class = "form-control readonly" } })
+                                </h3>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+
+                                @*FIRST BIKE RACK*@
+                                <div class="col-6 btn-group-toggle form-group " style="padding: 10px;">
+                                    <h3 style="padding-left: 20px;">
+                                        @Html.LabelFor(model => model.IsActive_Bike_Rack_1)
+                                    </h3>
+                                    <label class="btn btn-lg" id="btn-refresh">
+                                        @Html.CheckBoxFor(model => model.IsActive_Bike_Rack_1, new { @class = "buttontoggle" })
+                                        @*@Html.ValueFor(model => model.IsActive_Bike_Rack_1)*@
+                                        @if (Model.IsActive_Bike_Rack_1 == true)
+            {
+                            <span class="btn btn-danger btn-lg" style="font-size:30px; border-radius: 10px;">
+                                <text>Occupied</text>
+                            </span>
+}
+else
+{
+                            <span class="btn btn-success btn-lg" style="font-size:30px; border-radius: 10px;">
+                                <text>Unoccupied</text>
+                            </span>
+}
+                                    </label>
+
+                                </div>
+
+                                @*SECOND BIKE RACK*@
+                                <div class="col-6 btn-group-toggle form-group " style="padding: 10px;">
+                                    <h3 style="padding-left: 20px;">
+                                        @Html.LabelFor(model => model.IsActive_Bike_Rack_2)
+                                    </h3>
+                                    <label class="btn btn-lg" id="btn-refresh">
+                                        @Html.CheckBoxFor(model => model.IsActive_Bike_Rack_2, new { @class = "buttontoggle" })
+                                        @*@Html.ValueFor(model => model.IsActive_Bike_Rack_1)*@
+                                        @if (Model.IsActive_Bike_Rack_2 == true)
+            {
+                            <span class="btn btn-danger btn-lg" style="font-size:30px; border-radius: 10px;">
+                                <text>Occupied</text>
+                            </span>
+}
+else
+{
+                            <span class="btn btn-success btn-lg" style="font-size:30px; border-radius: 10px;">
+                                <text>Unoccupied</text>
+                            </span>
+}
+                                    </label>
+
+                                </div>
+                                @*THIRD BIKE RACK*@
+                                <div class="col-6 btn-group-toggle form-group " style="padding: 10px;">
+                                    <h3 style="padding-left: 20px;">
+                                        @Html.LabelFor(model => model.IsActive_Bike_Rack_3)
+                                    </h3>
+                                    <label class="btn btn-lg" id="btn-refresh">
+                                        @Html.CheckBoxFor(model => model.IsActive_Bike_Rack_3, new { @class = "buttontoggle" })
+                                        @*@Html.ValueFor(model => model.IsActive_Bike_Rack_1)*@
+                                        @if (Model.IsActive_Bike_Rack_3 == true)
+            {
+                            <span class="btn btn-danger btn-lg" style="font-size:30px; border-radius: 10px;">
+                                <text>Occupied</text>
+                            </span>
+}
+else
+{
+                            <span class="btn btn-success btn-lg" style="font-size:30px; border-radius: 10px;">
+                                <text>Unoccupied</text>
+                            </span>
+}
+                                    </label>
+
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div id="map" style="padding: 10px;"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Bike_Rack_2, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Bike_Rack_2)
-                    @Html.ValidationMessageFor(model => model.Bike_Rack_2, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Bike_Rack_3, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Bike_Rack_3)
-                    @Html.ValidationMessageFor(model => model.Bike_Rack_3, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.IsActive_Bike_Rack_1, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.IsActive_Bike_Rack_1)
-                    @Html.ValidationMessageFor(model => model.IsActive_Bike_Rack_1, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.IsActive_Bike_Rack_2, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.IsActive_Bike_Rack_2)
-                    @Html.ValidationMessageFor(model => model.IsActive_Bike_Rack_2, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.IsActive_Bike_Rack_3, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.IsActive_Bike_Rack_3)
-                    @Html.ValidationMessageFor(model => model.IsActive_Bike_Rack_3, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>
-}
+</form>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script>
+
+
+        $('.buttontoggle').on('click', function () {
+
+            var btn = this;
+            var btnValue = btn.btnValue;
+
+            if (btnValue === 'true') {
+
+                $("#btnlabel").html("Filled");
+            }
+            else {
+
+                $("#btnlabel").html("Empty");
+
+            }
+
+            UpdateValues();
+            setTimeout(
+                function () {
+                    $('body').load(document.URL + '#btn-refresh');
+                }, 2000);
+
+
+        });
+
+        function UpdateValues() {
+
+            var form = $("#submitForm").serialize();
+
+            $.post("", form);
+        }
+
+
+
+
+    </script>
 }

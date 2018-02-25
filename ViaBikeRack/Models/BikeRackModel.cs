@@ -33,13 +33,13 @@ namespace ViaBikeRack.Models
 
         #region Bus driver can adjust rack usage in this section
 
-        [Display(Name = "Bike Rack 1 Occupied")]
+        [Display(Name = "Bike Rack 1")]
         public bool IsActive_Bike_Rack_1 { get; set; }
 
-        [Display(Name = "Bike Rack 2 Occupied")]
+        [Display(Name = "Bike Rack 2")]
         public bool IsActive_Bike_Rack_2 { get; set; }
 
-        [Display(Name = "Bike Rack 3 Occupied")]
+        [Display(Name = "Bike Rack 3")]
         public bool IsActive_Bike_Rack_3 { get; set; }
         #endregion
     }
