@@ -1,6 +1,7 @@
-﻿
-mapboxgl.accessToken = 'pk.eyJ1IjoiY2FtcGJlbGwyMCIsImEiOiJjamUwbjFxNm41NTQ1MnFxcDhicnFha3ZjIn0.KyYq-lCDKDjOvL0VHZs0Mg';
-var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/campbell20/cje0qofkk333a2rqfzfto97o8'
-});
+﻿var map;
+function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 29.458525, lng: -98.523272 },
+        zoom: 13
+    });
+}
