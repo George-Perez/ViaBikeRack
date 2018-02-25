@@ -205,9 +205,15 @@
     <Compile Include="Migrations\201802240854414_BikeUpdate.Designer.cs">
       <DependentUpon>201802240854414_BikeUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\ApplicationDbContext\201802250409313_Identity.cs" />
+    <Compile Include="Migrations\ApplicationDbContext\201802250409313_Identity.Designer.cs">
+      <DependentUpon>201802250409313_Identity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\ApplicationDbContext\Configuration.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BikeRackModel.cs" />
+    <Compile Include="Models\BusRouteViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -329,6 +335,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802240854414_BikeUpdate.resx">
       <DependentUpon>201802240854414_BikeUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\ApplicationDbContext\201802250409313_Identity.resx">
+      <DependentUpon>201802250409313_Identity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

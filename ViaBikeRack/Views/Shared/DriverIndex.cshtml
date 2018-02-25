@@ -25,6 +25,13 @@
             $(this).addClass('btn btn-success btn-lg');
         }
     };
+
+    //function disableDropDown() {
+    $(".busNumberDropDown").css("color", "red");
+    $(".busNumberDropDown").prop("disabled", "disabled");
+    //});
+
+
 </script>
 
 <div class="container" style="background-color:darkred;">
@@ -45,6 +52,8 @@
     <div class="row align-items-center justify-content-center">
         <div class="col">
             <div class="col" style="padding:25px;">
+                @Html.DropDownList("BusRoute", ViewBag.RouteNumber as SelectList, "Select A Route")
+                @Html.DropDownList("BusNumber", ViewBag.BusNumber as SelectList, "Select A Bus", new { @class = "busNumberDropDown", @disabled = "disabled" })
                 <h2>BUS NUMBER #12312321</h2>
             </div>
             <div class="col" style="padding: 10px;">
@@ -78,49 +87,76 @@
 
 
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+@*@using (Html.BeginForm())
+    {*@
+@Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
+<div class="form-horizontal">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.IsActive_Bike_Rack_1, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.IsActive_Bike_Rack_1)
-                    @Html.ValidationMessageFor(model => model.IsActive_Bike_Rack_1, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.IsActive_Bike_Rack_2, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.IsActive_Bike_Rack_2)
-                    @Html.ValidationMessageFor(model => model.IsActive_Bike_Rack_2, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.IsActive_Bike_Rack_3, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.IsActive_Bike_Rack_3)
-                    @Html.ValidationMessageFor(model => model.IsActive_Bike_Rack_3, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+    <div class="form-group">
+        @Html.LabelFor(model => model.IsActive_Bike_Rack_1, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.IsActive_Bike_Rack_1)
+                @Html.ValidationMessageFor(model => model.IsActive_Bike_Rack_1, "", new { @class = "text-danger" })
             </div>
         </div>
     </div>
-}
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.IsActive_Bike_Rack_2, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.IsActive_Bike_Rack_2)
+                @Html.ValidationMessageFor(model => model.IsActive_Bike_Rack_2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.IsActive_Bike_Rack_3, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.IsActive_Bike_Rack_3)
+                @Html.ValidationMessageFor(model => model.IsActive_Bike_Rack_3, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    @Html.HiddenFor(model => model.Id)
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+@*}*@
+
+
+<script>
+    $(document).ready(function () {
+
+        $("#ajaxCall").click(function () {
+
+            $.ajax({
+                url = '/Home/MyajaxCall',
+                type = 'POST',
+                dataType = 'json',
+                data: { order: 'Bus_Number_Call' },
+                success: function (data) {
+
+                }, error: function (data) {
+
+                }
+
+            })
+        });
+    });
+
+</script>
+
 
 <div>
     @Html.ActionLink("Back to List", "Index")
